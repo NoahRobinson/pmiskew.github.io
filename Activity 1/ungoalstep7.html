@@ -338,7 +338,15 @@
 
 <script>
 
+  w = window.innerWidth
 
+  if (w > 940) {
+
+    document.getElementsByClassName("flex-container")[0].style.marginTop = "200px";
+  }
+  else {
+    document.getElementsByClassName("flex-container")[0].style.marginTop = "280px";
+  }
   window.onresize = function(event) {
 
     w = window.innerWidth

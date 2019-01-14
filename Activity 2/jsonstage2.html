@@ -7,17 +7,34 @@
 </head>
 <body>
 
-<script>
-	var staticUrl = 'https://raw.githubusercontent.com/PMiskew/pmiskew.github.io/master/Activity%202/data/HIVinfection.json';
-	$.getJSON(staticUrl, function(data) {
-  	console.log("This is an example of a static JSON file being served by a web server.")
-  	
-  	console.log(data.fact.length)
+<button onclick="myFunction()">Try it</button>
 
+
+<script>
+  var myData = "";
+
+	var staticUrl = 'https://raw.githubusercontent.com/PMiskew/pmiskew.github.io/master/Activity%202/data/HIVinfection.json';
+	
+  var myData = $.getJSON(staticUrl, function(data) {
+    
+    myData = data;
+  	console.log("This is an example of a static JSON file being served by a web server.")	
+  	console.log(data.fact.length)
   	console.log(data.fact[0].dims.COUNTRY);
   	console.log(data.fact[0].dims.GHO)
   	console.log(data.fact[0].dims.YEAR)
+    
 	});
+
+
+  window.onresize = function(event) {
+    console.log(myData)
+  }
+
+  function myFunction() {
+    console.log(myData);
+  }
+
 </script>
 </body>
 </html>

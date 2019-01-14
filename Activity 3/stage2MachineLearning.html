@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
+	<title>
+		Stage 2 Machine Learning
+	</title>
+</head>
+<body>
+
+<img src="https://ichef.bbci.co.uk/news/660/cpsprodpb/FD27/production/_101970846_aubreyblanche.jpg">
+<script>
+
+const app = new Clarifai.App({apiKey: '25dd403977044f108b994b4fb8a5c7c0'});
+
+
+app.models.predict("c0c0ac362b03416da06ab3fa36fb58e3", "https://ichef.bbci.co.uk/news/660/cpsprodpb/FD27/production/_101970846_aubreyblanche.jpg").then(
+    function(response) {
+      console.log(response)
+      console.log("FACE 1")
+      console.log(response.rawData.outputs[0].data.regions[0].data.face.gender_appearance.concepts[0].name+": "+response.rawData.outputs[0].data.regions[0].data.face.gender_appearance.concepts[0].value)
+      console.log(response.rawData.outputs[0].data.regions[0].data.face.gender_appearance.concepts[1].name+": "+response.rawData.outputs[0].data.regions[0].data.face.gender_appearance.concepts[1].value)
+    },
+    function(err) {
+      // there was an error
+    }
+  );
+</script>
+</body>
+</html>

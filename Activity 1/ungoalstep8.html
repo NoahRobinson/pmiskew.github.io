@@ -4,7 +4,7 @@
 
   <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
 
-  <title>UN Goals Step 7</title>
+  <title>UN Goals Step 8</title>
 
 <style>
 
@@ -122,29 +122,33 @@
     <img class = "center" src="images/logosquare.png" alt="Flowers" style="width:auto;">
   </picture>
 </div>
-Year9Design-WebDev
 
 <div class = "flex-container">
-  <div class="flip-box">
-    <div class="flip-box-inner">
-      <div class="flip-box-front">
-       <img src="images/E_SDG goal 01.png" alt="Avatar" style="width:300px; height:300px;"/>
-      </div>
-      <div class="flip-box-back" style="background-color: #EB1C2D">
-        <h3>No Poverty</h3>
-        <p>Is universial income the solution?</p>
+ 
+  <div style = "background-color: orange; padding: 100px;" id = "div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <div id = "div1" class="flip-box">
+      <div class="flip-box-inner">
+        <div class="flip-box-front">
+         <img src="images/E_SDG goal 01.png" alt="Avatar" style="width:300px; height:300px;"/>
+        </div>
+        <div class="flip-box-back" style="background-color: #EB1C2D">
+          <h3>No Poverty</h3>
+          <p>Is universial income the solution?</p>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="flip-box" >
-    <div class="flip-box-inner">
-      <div class="flip-box-front">
-       <img src="images/E_SDG goal 02.png" alt="Avatar" style="width:300px; height:300px;"/>
-      </div>
-      <div class="flip-box-back" style="background-color: #d3a029">
-        <h3>Good Heal</h3>
-        <p>Can we effectivly farm bugs?</p>
+  <div style = "background-color: orange; padding: 100px;" id = "div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <div class="flip-box" >
+      <div class="flip-box-inner">
+        <div class="flip-box-front">
+         <img src="images/E_SDG goal 02.png" alt="Avatar" style="width:300px; height:300px;"/>
+        </div>
+        <div class="flip-box-back" style="background-color: #d3a029">
+          <h3>Good Heal</h3>
+          <p>Can we effectivly farm bugs?</p>
+        </div>
       </div>
     </div>
   </div>
@@ -368,6 +372,24 @@ Year9Design-WebDev
     }
   }
 
+
+  function allowDrop(ev) {
+      ev.preventDefault();
+  }
+
+  function drag(ev) {
+      ev.dataTransfer.setData("src", ev.target.id);
+  }
+
+  function drop(ev) {
+      ev.preventDefault();
+      var src = document.getElementById(ev.dataTransfer.getData("src"));
+      var srcParent = src.parentNode;
+      var tgt = ev.currentTarget.firstElementChild;
+
+      ev.currentTarget.replaceChild(src, tgt);
+      srcParent.appendChild(tgt);
+  }
 </script>
 
 </body>

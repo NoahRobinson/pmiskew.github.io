@@ -22,7 +22,7 @@
 <script>
 
   const app = new Clarifai.App({apiKey: '25dd403977044f108b994b4fb8a5c7c0'});
-  var top_row = 0;
+ 
   var left_col = 0;
   var bottom_row = 0;
   var right_col = 0;
@@ -30,7 +30,7 @@
   app.models.predict("c0c0ac362b03416da06ab3fa36fb58e3", "https://i.pinimg.com/736x/82/30/b3/8230b3e601bd66e593423e8004058d84--senior-portraits-boys-senior-male-poses.jpg").then(
       function(response) {
         console.log(response)
-        top_row = response.rawData.outputs[0].data.regions[0].region_info.bounding_box.top_row;
+        let top_row = response.rawData.outputs[0].data.regions[0].region_info.bounding_box.top_row;
         left_col = response.rawData.outputs[0].data.regions[0].region_info.bounding_box.left_col;
         bottom_row = response.rawData.outputs[0].data.regions[0].region_info.bounding_box.bottom_row;
         right_col = response.rawData.outputs[0].data.regions[0].region_info.bounding_box.right_col;

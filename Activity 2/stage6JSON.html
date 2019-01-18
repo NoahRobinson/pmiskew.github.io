@@ -2,10 +2,10 @@
 <html>
 <head>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<title>JSON Stage 4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>JSON Stage 5</title>
 
-	
+    
     <style>
         #div1 {
             background: blue;
@@ -28,9 +28,9 @@
         }
 
         p {
-        	font-size: 20px;
-        	line-height: 50px;
-        	margin-left: 30px;
+            font-size: 20px;
+            line-height: 50px;
+            margin-left: 30px;
 
         }
     </style>
@@ -38,8 +38,8 @@
 </head>
 <body>
 
-	<h1>HIV Infection Rates Compared Proportionally By Country<h1>
- 	<div id = "div1"><p id = "p1"></p>
+    <h1>HIV Infection Rates Compared Proportionally By Country<h1>
+    <div id = "div1"><p id = "p1"></p>
     </div>
     <div id = "div2"><p id = "p2"></p>
     </div>
@@ -49,6 +49,8 @@
 
 <script>
    
+
+
    var myData = "";
    var staticUrl = 'https://raw.githubusercontent.com/PMiskew/pmiskew.github.io/master/Activity%202/data/HIVinfection.json';
 
@@ -56,23 +58,37 @@
     //we are accessing the function getJSON. We set the URL to the address
     //and data is the variable that generates the information
     $.getJSON(staticUrl, function(data) {
+       
         
+       
+
+        myData = data;
+
+
+    });
+
+    function adjustDisplay() {
+        
+         var currentTime = new Date().getTime();
+         while (currentTime +2000 >= new Date().getTime()) {
+        }
+
         //the window object contains all the information about the current tab. 
-    	iw = window.innerWidth - 100; //access the width of the inner window
+        iw = window.innerWidth - 100; //access the width of the inner window
         
         
         //Process in multiple steps: This is safer and will help you avoid issues
-        country1 = data.fact[1].Value; //Get value from JSON
+        country1 = myData.fact[1].Value; //Get value from JSON
         val1 = country1.substring(0,country1.indexOf("[")); // All values have [
         val1 = val1.replace(" ",""); //replace all " " with "", great trick to remove characters. 
         val1 = parseInt(val1); //convert val1 to in to be able to perform math with it. 
         
 
         //Process in two lines: This looks cool and is great, but it is hard to catch details. 
-        country2 = data.fact[2].Value;
+        country2 = myData.fact[2].Value;
         val2 = parseInt(country2.substring(0,country2.indexOf("[")).replace(" ",""));
         
-        country3 = data.fact[4].Value;
+        country3 = myData.fact[4].Value;
         val3 = parseInt(country3.substring(0,country3.indexOf("[")).replace(" ",""));
         
         //max is an overloaded function.  This means we can pass a number of parameters
@@ -100,19 +116,26 @@
         val3s = val3/largest*iw;
 
         document.getElementById("div1").style.width = val1s+"px";
-		document.getElementById("div2").style.width = val2s+"px";
-		document.getElementById("div3").style.width = val3s+"px";
+        document.getElementById("div2").style.width = val2s+"px";
+        document.getElementById("div3").style.width = val3s+"px";
 
-		document.getElementById("p1").innerHTML = "<pre>"+data.fact[1].dims.COUNTRY + " : "+val1+"</pre>"
-		document.getElementById("p2").innerHTML = "<pre>"+data.fact[2].dims.COUNTRY + " : "+val2+"</pre>"
-		document.getElementById("p3").innerHTML = "<pre>"+data.fact[4].dims.COUNTRY + " : "+val3+"</pre>"
-
-
-
+        document.getElementById("p1").innerHTML = "<pre>"+myData.fact[1].dims.COUNTRY + " : "+val1+"</pre>"
+        document.getElementById("p2").innerHTML = "<pre>"+myData.fact[2].dims.COUNTRY + " : "+val2+"</pre>"
+        document.getElementById("p3").innerHTML = "<pre>"+myData.fact[4].dims.COUNTRY + " : "+val3+"</pre>"
+    }
 
 
+    window.onresize = function(event) {
+        adjustDispaly()
+    };
 
-    });
+    window.onload = function(event) {
+        adjustDisplay();
+    }
+
+
+
+
 </script>
 </body>
 </html>

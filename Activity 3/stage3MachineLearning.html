@@ -30,7 +30,7 @@
   app.models.predict("c0c0ac362b03416da06ab3fa36fb58e3", "https://i.pinimg.com/736x/82/30/b3/8230b3e601bd66e593423e8004058d84--senior-portraits-boys-senior-male-poses.jpg").then(
       function(response) {
         console.log(response)
-        let top_row = response.rawData.outputs[0].data.regions[0].region_info.bounding_box.top_row;
+        top_row = response.rawData.outputs[0].data.regions[0].region_info.bounding_box.top_row;
         left_col = response.rawData.outputs[0].data.regions[0].region_info.bounding_box.left_col;
         bottom_row = response.rawData.outputs[0].data.regions[0].region_info.bounding_box.bottom_row;
         right_col = response.rawData.outputs[0].data.regions[0].region_info.bounding_box.right_col;

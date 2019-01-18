@@ -18,10 +18,12 @@
 
 
         p {
-        	font-size: 20px;
         
-        	margin-left: 30px;
+            margin-left: 10px;
             white-space: pre-wrap;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: normal;
 
         }
     </style>
@@ -52,7 +54,7 @@
         largest = parseInt(vstr.substring(0,vstr.indexOf("[")).replace(" ",""));
 
 
-        for (i = 0; i < 194; i++) {
+        for (i = 2; i < 194; i++) {
 
             vstr = data.fact[i].Value;
             cval = parseInt(vstr.substring(0,vstr.indexOf("[")).replace(" ",""));
@@ -66,7 +68,7 @@
         
         console.log(largest)
 
-        for (i = 0; i < 194; i++) {
+        for (i = 2; i < 194; i++) {
 
             col = ["red","green","blue"];
             
@@ -91,14 +93,15 @@
                 var p = document.createElement("p");
                 p.setAttribute("id","p"+i);
                 tcountry = String(data.fact[i].dims.COUNTRY);
+
                 console.log(tcountry);
 
                 document.getElementById("div"+i).appendChild(p);
-                document.getElementById("p"+i).innerHTML = "<pre>"+tcountry+"</pre>";    
+                document.getElementById("p"+i).innerHTML = "<pre>"+tcountry+" - "+cval+"</pre>";    
                 
 
             }
-
+       
         }
 
 

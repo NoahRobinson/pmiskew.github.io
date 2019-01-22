@@ -3,7 +3,7 @@
 <head>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<title>JSON Stage 4</title>
+	<title>JSON Stage 4a</title>
 
 	
     <style>
@@ -78,30 +78,6 @@
         country3 = data.fact[4].Value;
         val3 = parseInt(country3.substring(0,country3.indexOf("[")).replace(" ",""));
         
-        //max is an overloaded function.  This means we can pass a number of parameters
-        //and it will work accordingly. 
-        largest = Math.max(val1,val2,val3);
-
-        //console.log(largest); //just printed this out to check
-        
-        // Pure Math to calculate the nubmer of pixles that the bar will represent.
-        // This is the ratios
-        //
-        //  screen length      population with HIV
-        //  -------------  =  --------------------
-        //  window width              largest
-        //
-        //
-        // Isolate for screen length
-        //
-        //                   population with HIV
-        //  screen length = --------------------- * window width
-        //                          largest
-        //
-        val1s = (val1/largest)*iw;
-        val2s = (val2/largest)*iw;
-        val3s = val3/largest*iw;
-
         document.getElementById("div1").style.width = val1+"px";
 		document.getElementById("div2").style.width = val2+"px";
 		document.getElementById("div3").style.width = val3+"px";

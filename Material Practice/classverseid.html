@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<!--
+	In this example we will go through the differnce between
+	the class and id selectors. 
+
+	You can only use and id once. 
+	You can give multiple elements the same class. 
+-->
+
+<head>
+	<title>
+	Class Verses ID
+	</title>
+
+	<style>
+
+		div {
+			height: 100px;
+			width: 100px;
+			background-color:red;
+		}
+		/* The #<id name> is a way of specifiying CSS to an id*/
+		#div1 {
+			background-color:blue;
+		}
+
+		/* The .<id name> is a ways of specifiying CSS to one or more class*/
+		.divc {
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+
+	<!-- Inline CSS is CSS writing inside tag.  This is highests precident -->
+	<div style = "background-color: green; width: 150px;">
+	</div>
+	<div id = "div1">
+	</div>
+	<div class = "divc">
+	</div>
+	<div class = "divc">
+	</div>
+
+</body>
+
+
+</html>

@@ -102,11 +102,12 @@
         val2s = (val2/largest)*iw;
         val3s = val3/largest*iw;
 
-        document.getElementById("div1").style.width = val1+"px";
-		document.getElementById("div2").style.width = val2+"px";
-		document.getElementById("div3").style.width = val3+"px";
+        document.getElementById("div1").style.width = val1s+"px";
+		document.getElementById("div2").style.width = val2s+"px";
+		document.getElementById("div3").style.width = val3s+"px";
 
-		document.getElementById("p1").innerHTML = "<pre>"+data.fact[1].dims.COUNTRY + " : "+val1+"</pre>"
+        country1Name = data.fact[1].dims.COUNTRY;
+		document.getElementById("p1").innerHTML = "<pre>"+country1Name + " : "+val1+"</pre>"
 		document.getElementById("p2").innerHTML = "<pre>"+data.fact[2].dims.COUNTRY + " : "+val2+"</pre>"
 		document.getElementById("p3").innerHTML = "<pre>"+data.fact[4].dims.COUNTRY + " : "+val3+"</pre>"
 

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Stage 4b JSON Activity</title>
+
+    <style>
+
+        div {
+            height: 50px;
+            width: 0px;
+            border-radius: 10px;
+        }
+        #div1 {
+            background: blue;
+        }
+        #div2 {
+            background: red;
+        }
+        #div3 {
+            background: green;
+        }
+        p {
+            font-size: 20px;
+            line-height: 50px;
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>HIV Infection Rates Compared Proportionally By Country<h1>
+<div id = "div1"><p id = "p1"></p>
+</div>
+<div id = "div2"><p id = "p2"></p>
+</div>
+<div id = "div3"><p id = "p3"></p>
+</div>
+
+
+
+<script>
+
+    var myData = "";
+    var staticUrl = 'https://raw.githubusercontent.com/PMiskew/pmiskew.github.io/master/Activity%202/data/HIVinfection.json'; 
+
+    $.getJSON(staticUrl, function(data) {
+
+
+        iw = window.innerWidth - 100;
+        //console.log(iw);
+
+        country1Data = data.fact[1].Value;
+        //console.log(country1Data);
+        loc1 = country1Data.indexOf("[");
+        //console.log(loc1);
+        val1 = country1Data.substring(0,loc1);
+        //console.log(val1);
+        val1 = val1.replace(/ /g,"");
+        //console.log(val1);
+        val1 = parseInt(val1);
+        //console.log(val1);
+
+        country2Data = data.fact[2].Value;
+        //console.log(country2Data);
+        loc2 = country2Data.indexOf("[");
+        //console.log(loc2);
+        val2 = country2Data.substring(0,loc2);
+        //console.log(val2);
+        val2 = val2.replace(/ /g,"");
+        //console.log(val2);
+        val2 = parseInt(val2);
+        //console.log(val2);
+
+        country3Data = data.fact[6].Value;
+        //console.log(country3Data);
+        loc3 = country3Data.indexOf("[");
+        //console.log(loc3);
+        val3 = country3Data.substring(0,loc3);
+        //console.log(val3);
+        val3 = val3.replace(/ /g,"");
+        //console.log(val3);
+        val3 = parseInt(val3);
+        //console.log(val3);
+
+        largest = Math.max(val1,val2,val3);
+        //console.log(largest);
+
+        val1s = val1/largest*iw
+        val2s = val2/largest*iw
+        val3s = val3/largest*iw 
+
+
+
+        document.getElementById("div1").style.width = val1s+"px";
+        document.getElementById("div2").style.width = val2s+"px";
+        document.getElementById("div3").style.width = val3s+"px";
+
+        document.getElementById("p1").innerHTML = "<pre>"+data.fact[1].dims.COUNTRY + " : "+val1+"</pre>"
+
+        document.getElementById("p2").innerHTML = "<pre>"+data.fact[2].dims.COUNTRY + " : "+val2+"</pre>"
+
+        document.getElementById("p3").innerHTML = "<pre>"+data.fact[6].dims.COUNTRY + " : "+val3+"</pre>"
+    });
+
+
+</script>
+</body>
+</html>

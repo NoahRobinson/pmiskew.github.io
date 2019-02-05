@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<title>Stock Pull</title>
+</head>
+<body>
+
+
+
+
+
+<script>
+
+	var myData = "";
+	var staticUrl = 'https://api.iextrading.com/1.0/stock/market/batch?symbols=aapl,googl&types=quote,news,chart&range=1m&last=5'; 
+
+	$.getJSON(staticUrl, function(data) {
+        
+
+        console.log(data)
+    
+
+
+    });
+
+
+</script>
+</body>
+</html>

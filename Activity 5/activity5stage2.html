@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
+  
+	<title></title>
+<style>
+	
+  .wrapper {
+    
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+
+  
+  }
+
+  .div1 {
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 600px;
+    background: green;
+    min-width: 400px;
+    max-width: 500px;
+    border: solid;
+
+	}
+
+  .div2 {
+
+    text-align: center;
+    width: 50%;
+    height: 600px;
+    background-color: blue;
+    min-width: 400px;
+    max-width: 500px;
+    border: solid;
+
+  }
+
+  h1 ul {
+    vertical-align: center;
+
+  }
+
+  ul {
+   list-style-type: none;
+  }
+
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class = "wrapper">
+  <div class = "div1">
+
+    <input type= "text" style = "width: 50%; font-size: 1em; margin: 10px" id="userinput">
+    <button id="enter">Enter</button>
+    <select id = "dropdown">
+      <option value="ti1">Test Image 1</option>
+      <option value="ti2">Test Image 2</option>
+      <option value="ti3">Test Image 3</option>
+      <option value="ti4">Test Image 4</option>
+      <option value="ti5">Test Image 5</option>
+      <option value ="custom" disabled>CUSTOM</option>
+    </select>
+      
+
+    <img id = "picture" src="http://farm1.static.flickr.com/228/499181350_b01a280789.jpg" alt="Smiley face" width="300" height=auto>
+
+
+    <button id="process" style= "width: 300px; height: 30px;">Process</button>
+  </div>
+
+  <div class = "div2">
+
+    <h1>PREDICTIONS</h1>
+    <ul>
+    </ul>
+
+  </div>
+</div>
+
+
+
+
+<script type="text/javascript" src="script.js"></script>
+
+
+
+
+</body>
+
+</html>

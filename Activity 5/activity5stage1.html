@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
+  
+	<title></title>
+<style>
+	.container {
+		padding: 10px;
+	}
+
+</style>
+</head>
+
+
+<body>
+
+
+<input type= "text" id="userinput">
+<button id="enter">Enter</button>
+<select id = "dropdown">
+  <option value="ti1">Test Image 1</option>
+  <option value="ti2">Test Image 2</option>
+  <option value="ti3">Test Image 3</option>
+  <option value="ti4">Test Image 4</option>
+  <option value="ti5">Test Image 5</option>
+  <option value ="custom">CUSTOM</option>
+</select>
+  
+<div class = "container">
+
+<img id = "picture" src="http://farm1.static.flickr.com/228/499181350_b01a280789.jpg" alt="Smiley face" height="300" width=auto>
+</div>
+<div class = "results">
+<button id="process">Process</button>
+<h1>PREDICTIONS</h1>
+<ul>
+</ul>
+</div>
+
+
+
+
+<script type="text/javascript" src="script.js"></script>
+
+
+
+
+</body>
+
+</html>

@@ -5,11 +5,8 @@ var processbtn = document.getElementById("process");
 var dropdown = document.getElementById("dropdown");
 var ul = document.querySelector("ul");
 
-console.log(dropdown)
-
 var resp = "";
 
-const app = new Clarifai.App({apiKey: '25dd403977044f108b994b4fb8a5c7c0'});
 
 // You can also use the SDK by adding this script to your HTML:
 var img1 = "http://farm1.static.flickr.com/228/499181350_b01a280789.jpg";
@@ -19,6 +16,8 @@ var img4 = "https://community.clarifai.com/uploads/default/original/1X/f78720b7d
 var img5 = "https://image.shutterstock.com/display_pic_with_logo/136306/722718082/stock-photo-healthy-food-clean-eating-selection-fruit-vegetable-seeds-superfood-cereals-leaf-vegetable-on-722718082.jpg"
 
 var image = img1;
+
+const app = new Clarifai.App({apiKey: '25dd403977044f108b994b4fb8a5c7c0'});
 
 function inputLength() {
 	return input.value.length;

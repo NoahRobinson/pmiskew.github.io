@@ -2,7 +2,7 @@
 <html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <title>Stage 7 JSON Activity</title>
+    <title>Stage 8 JSON Activity</title>
 
     <style>
         div {
@@ -25,7 +25,6 @@
         }
             
         #topbar {
-          
             background-color:white;
             margin:20px;
             width: 95%;
@@ -34,8 +33,6 @@
 
         .wrapper {
             background-color: white;
-            position: fixed;
-            top: 0;
             z-index: 1000;
             width: 100%;
             height: 200px;
@@ -47,23 +44,47 @@
             
             margin-top:200px;
 
-        }    
+        }   
+
+        #sec1, #sec3{
+            width: 100%;
+            height: 200px;
+            background-color: yellow;
+        } 
+
+        #sec2 {
+            height: auto;
+        }
+
+      
+
     </style>
 </head>
 <body>
 
-    <div class = "wrapper">
-     <div id="topbar">
-        <h1>HIV Infection Rates Compared Proportionally By Country</h1>
-     </div>
-     <h2>Input Maximum Number of Infected Individuals</h2>
-    <input type = "number" id="maxdisplay" style = "font-size:2em">
-    </div>
 
-<div id = "content">
+<div id = "sec1">
+    <h1>INTRODUCTION</h1>
+</div>
+
+<div id = "sec2">
+
+    <div class = "wrapper">
+                <div id="topbar">
+                    <h1>HIV Infection Rates Compared Proportionally By Country</h1>
+                </div>
+                <h2>Input Maximum Number of Infected Individuals</h2>
+                <input type = "number" id="maxdisplay" style = "font-size:2em">
+    </div>     
+    <div id = "content">
+       
+    </div>
 
 </div>
 
+<div id = "sec3">
+    <h1>RESOURCES</h1>
+</div>
 
 
 <script>
